@@ -45,7 +45,7 @@ export default function AboutPage() {
             className="text-center mb-16"
           >
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              About <span className="text-blue-600">YESP Tech</span>
+              About <span className="text-blue-600">Yesp Tech</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               We are passionate about transforming businesses through innovative web development and eCommerce
