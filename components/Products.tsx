@@ -56,7 +56,7 @@ export default function Products() {
                     <div className="relative bg-white rounded-3xl p-4 shadow-lg border border-gray-100">
                       <Image
                         src="/ecom-studio-logo.png"
-                        alt="YESP Ecom Studio"
+                        alt="Yesp Ecom Studio"
                         width={80}
                         height={80}
                         className="drop-shadow-sm"
@@ -66,7 +66,7 @@ export default function Products() {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-3xl font-bold text-gray-900 mb-2">YESP Ecom Studio</h3>
+                      <h3 className="text-3xl font-bold text-gray-900 mb-2">Yesp Ecom Studio</h3>
                       <p className="text-blue-600 font-medium">The Future of eCommerce</p>
                     </div>
                   </div>
