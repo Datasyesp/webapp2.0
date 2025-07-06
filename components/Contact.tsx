@@ -114,8 +114,19 @@ export default function Contact() {
                     We're here to help with your project
                     <div className="flex flex-col sm:flex-row gap-4">
                       <Button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-semibold flex items-center gap-2">
-                        <MessageCircle className="w-5 h-5" />
-                        WhatsApp Us
+                      <a
+  href="https://wa.me/919751755757?text=Hello%21%20I%E2%80%99m%20interested%20in%20your%20services.%20Please%20assist%20me."
+  target="_blank"
+  rel="noopener noreferrer"
+ 
+>
+ 
+  <div>
+    <p>WhatsApp</p>
+  
+  </div>
+</a>
+
                       </Button>
                       <Button
                         asChild
