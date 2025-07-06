@@ -91,9 +91,9 @@ export default function Footer() {
               <span className="text-gray-400">Follow us:</span>
               <div className="flex gap-3">
                 {[
-                  { icon: Linkedin, href: "#" },
-                  { icon: Twitter, href: "#" },
-                  { icon: Instagram, href: "#" },
+                  { icon: Linkedin, href: "https://www.linkedin.com/company/yesptech/" },
+                  { icon: Twitter, href: "https://x.com/yesptech?s=21" },
+                  { icon: Instagram, href: "https://www.instagram.com/yesptech/?hl=en" },
                 ].map((social, index) => (
                   <Link
                     key={index}
@@ -107,7 +107,7 @@ export default function Footer() {
             </div>
 
             <div className="text-center md:text-right">
-              <p className="text-gray-400">© {currentYear} YESP Tech. All rights reserved.</p>
+              <p className="text-gray-400">© {currentYear} Yesp Tech. All rights reserved.</p>
             </div>
           </div>
         </div>
