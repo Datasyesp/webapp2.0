@@ -70,7 +70,7 @@ export default function Hero() {
           {/* Logo Section */}
           <div className="flex justify-center items-center gap-6 mb-8">
             <div className="bg-white rounded-3xl p-4 shadow-lg border border-gray-100">
-              <Image src="/yesp-logo.png" alt="YESP Tech Logo" width={60} height={60} />
+              <Image src="/yesp-logo.png" alt="Yesp Tech Logo" width={60} height={60} />
             </div>
             <div className="w-px h-12 bg-gray-200" />
             <div className="bg-white rounded-3xl p-4 shadow-lg border border-gray-100">
