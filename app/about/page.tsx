@@ -62,7 +62,7 @@ export default function AboutPage() {
               <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
                 <p className="text-gray-700 leading-relaxed mb-6">
-                  Founded with a vision to bridge the gap between innovative technology and business success, YESP Tech
+                  Founded with a vision to bridge the gap between innovative technology and business success, Yesp Tech
                   has grown from a small startup to a trusted partner for businesses worldwide.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
