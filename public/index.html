@@ -113,6 +113,21 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#1e40af',
+                    }
+                }
+            }
+        }
+    </script>
+    
     <!-- Structured Data - Organization -->
     <script type="application/ld+json">
     {
@@ -283,54 +298,7 @@
             padding: 0 20px;
         }
         
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: #2563eb;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .cta-button:hover {
-            background-color: #1d4ed8;
-            transform: translateY(-2px);
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .hero p {
-                font-size: 1.1rem;
-            }
-        }
-        
+        /* Loading Screen */
         .loading {
             position: fixed;
             top: 0;
@@ -358,17 +326,64 @@
             100% { transform: rotate(360deg); }
         }
 
-        .redirect-notice {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        /* Next.js App Container */
+        .nextjs-app {
+            min-height: 100vh;
             background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Hide static content when Next.js loads */
+        .nextjs-loaded .static-content {
+            display: none;
+        }
+
+        /* Static fallback styles */
+        .hero-static {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            z-index: 10000;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .hero-static h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero-static p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-static h1 {
+                font-size: 2.5rem;
+            }
+            .hero-static p {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -378,11 +393,6 @@
         <div class="spinner"></div>
     </div>
 
-    <!-- Redirect Notice -->
-    <div id="redirect-notice" class="redirect-notice" style="display: none;">
-        Redirecting to main application...
-    </div>
-
     <!-- No Script Message -->
     <noscript>
         <div style="position: fixed; top: 0; left: 0; right: 0; background-color: #f59e0b; color: white; padding: 10px; text-align: center; z-index: 9999;">
@@ -390,9 +400,39 @@
         </div>
     </noscript>
     
-    <!-- Main Content -->
-    <main>
-        <section class="hero">
+    <!-- Next.js App Container -->
+    <div id="nextjs-app" class="nextjs-app" style="display: none;">
+        <!-- Next.js content will be loaded here -->
+    </div>
+    
+    <!-- Static Fallback Content -->
+    <div id="static-content" class="static-content">
+        <!-- Navbar -->
+        <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center py-4">
+                    <div class="flex items-center">
+                        <img src="/yesp-logo.png" alt="Yesp Tech Logo" class="h-10 w-auto">
+                        <span class="ml-2 text-xl font-bold text-gray-800">Yesp Tech</span>
+                    </div>
+                    <div class="hidden md:flex space-x-8">
+                        <a href="#home" class="text-gray-700 hover:text-blue-600 transition duration-300">Home</a>
+                        <a href="#about" class="text-gray-700 hover:text-blue-600 transition duration-300">About</a>
+                        <a href="#services" class="text-gray-700 hover:text-blue-600 transition duration-300">Services</a>
+                        <a href="#products" class="text-gray-700 hover:text-blue-600 transition duration-300">Products</a>
+                        <a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300">Contact</a>
+                    </div>
+                    <button class="md:hidden">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero-static">
             <div class="container">
                 <h1>Leading Web Development Company in Erode</h1>
                 <p>Transform your business with cutting-edge web solutions, eCommerce platforms, and mobile applications. Trusted by 50+ clients across Tamil Nadu.</p>
@@ -401,93 +441,282 @@
                 </a>
             </div>
         </section>
-    </main>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-gray-50">
+            <div class="container">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4">About Yesp Tech</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        We are a leading web development company in Erode, Tamil Nadu, with 3+ years of experience 
+                        delivering innovative digital solutions to businesses across India.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Fast Delivery</h3>
+                        <p class="text-gray-600">Quick turnaround times without compromising quality</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Quality Assured</h3>
+                        <p class="text-gray-600">Rigorous testing and quality control processes</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 100 19.5 9.75 9.75 0 000-19.5z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">24/7 Support</h3>
+                        <p class="text-gray-600">Round-the-clock customer support and maintenance</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20">
+            <div class="container">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
+                    <p class="text-xl text-gray-600">Comprehensive digital solutions for your business needs</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                        <h3 class="text-xl font-semibold mb-4">Web Development</h3>
+                        <p class="text-gray-600 mb-4">Custom websites built with modern technologies like React, Next.js, and Node.js</p>
+                        <ul class="text-sm text-gray-500">
+                            <li>• Responsive Design</li>
+                            <li>• SEO Optimized</li>
+                            <li>• Fast Loading</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                        <h3 class="text-xl font-semibold mb-4">eCommerce Development</h3>
+                        <p class="text-gray-600 mb-4">Complete online store solutions with payment gateway integration</p>
+                        <ul class="text-sm text-gray-500">
+                            <li>• Shopping Cart</li>
+                            <li>• Payment Integration</li>
+                            <li>• Inventory Management</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                        <h3 class="text-xl font-semibold mb-4">Mobile App Development</h3>
+                        <p class="text-gray-600 mb-4">Native and cross-platform mobile applications for iOS and Android</p>
+                        <ul class="text-sm text-gray-500">
+                            <li>• iOS & Android</li>
+                            <li>• React Native</li>
+                            <li>• Flutter</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gray-50">
+            <div class="container">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+                    <p class="text-xl text-gray-600">Ready to start your project? Contact us today!</p>
+                </div>
+                <div class="max-w-2xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div class="text-center">
+                            <h3 class="text-lg font-semibold mb-2">Phone</h3>
+                            <p class="text-gray-600">+91-9751755757</p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-lg font-semibold mb-2">Email</h3>
+                            <p class="text-gray-600">info@yesptech.in</p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="https://calendly.com/yesptech" class="cta-button" target="_blank" rel="noopener noreferrer">
+                            Schedule a Free Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-12">
+            <div class="container">
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <img src="/yesp-logo.png" alt="Yesp Tech Logo" class="h-8 w-auto">
+                            <span class="ml-2 text-lg font-bold">Yesp Tech</span>
+                        </div>
+                        <p class="text-gray-400">Leading web development company in Erode, Tamil Nadu.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Services</h3>
+                        <ul class="space-y-2 text-gray-400">
+                            <li>Web Development</li>
+                            <li>eCommerce Development</li>
+                            <li>Mobile App Development</li>
+                            <li>UI/UX Design</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Company</h3>
+                        <ul class="space-y-2 text-gray-400">
+                            <li>About Us</li>
+                            <li>Our Team</li>
+                            <li>Careers</li>
+                            <li>Contact</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                        <ul class="space-y-2 text-gray-400">
+                            <li>Erode, Tamil Nadu</li>
+                            <li>+91-9751755757</li>
+                            <li>info@yesptech.in</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                    <p>&copy; 2025 Yesp Tech. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
     
     <!-- JavaScript -->
     <script>
-        // Check if Next.js app is available
-        function checkNextJSApp() {
-            // Try to detect if we're in a Next.js environment
-            if (window.location.pathname === '/index.html' || window.location.search.includes('static=true')) {
-                // We're likely accessing the static HTML directly
-                return false;
-            }
-            
-            // Check if Next.js router is available
-            if (typeof window !== 'undefined' && window.__NEXT_DATA__) {
-                return true;
-            }
-            
-            return false;
+        // Check if Next.js is available
+        function checkNextJS() {
+            return new Promise((resolve) => {
+                // Try to load Next.js app
+                fetch('/_next/static/chunks/pages/_app.js')
+                    .then(() => resolve(true))
+                    .catch(() => resolve(false));
+            });
         }
-        
-        // Redirect to Next.js app if available
-        function redirectToNextJS() {
-            if (window.location.pathname === '/index.html') {
-                const redirectNotice = document.getElementById('redirect-notice');
-                if (redirectNotice) {
-                    redirectNotice.style.display = 'block';
+
+        // Load Next.js app content
+        async function loadNextJSApp() {
+            try {
+                // Check if we can access Next.js
+                const hasNextJS = await checkNextJS();
+                
+                if (hasNextJS) {
+                    // Try to load the Next.js page content
+                    const response = await fetch('/');
+                    const html = await response.text();
+                    
+                    // Parse the HTML to extract the Next.js app content
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const nextjsContent = doc.querySelector('#__next');
+                    
+                    if (nextjsContent) {
+                        const appContainer = document.getElementById('nextjs-app');
+                        const staticContent = document.getElementById('static-content');
+                        
+                        // Replace static content with Next.js content
+                        appContainer.innerHTML = nextjsContent.innerHTML;
+                        appContainer.style.display = 'block';
+                        staticContent.style.display = 'none';
+                        
+                        // Add class to indicate Next.js is loaded
+                        document.body.classList.add('nextjs-loaded');
+                        
+                        console.log('Next.js app loaded successfully');
+                        return true;
+                    }
                 }
                 
-                setTimeout(() => {
-                    window.location.href = '/';
-                }, 2000);
-                return true;
+                console.log('Using static HTML fallback');
+                return false;
+            } catch (error) {
+                console.log('Error loading Next.js app, using static fallback:', error);
+                return false;
             }
-            return false;
         }
-        
-        // Remove loading screen when page loads
-        window.addEventListener('load', function() {
+
+        // Initialize the page
+        async function initializePage() {
             const loading = document.getElementById('loading');
-            if (loading) {
-                loading.style.opacity = '0';
-                setTimeout(() => {
+            
+            try {
+                // Try to load Next.js app
+                const nextjsLoaded = await loadNextJSApp();
+                
+                // Remove loading screen
+                if (loading) {
+                    loading.style.opacity = '0';
+                    setTimeout(() => {
+                        loading.style.display = 'none';
+                    }, 300);
+                }
+                
+                // Initialize analytics
+                trackEvent('page_load', {
+                    source: nextjsLoaded ? 'nextjs' : 'static_html',
+                    page: window.location.pathname
+                });
+                
+            } catch (error) {
+                console.error('Error initializing page:', error);
+                
+                // Remove loading screen even if there's an error
+                if (loading) {
                     loading.style.display = 'none';
-                }, 300);
+                }
             }
-            
-            // Try to redirect to Next.js app
-            if (!redirectToNextJS()) {
-                // We're in static mode, continue with static functionality
-                console.log('Running in static HTML mode');
-            }
-        });
-        
-        // Basic analytics tracking
+        }
+
+        // Analytics tracking
         function trackEvent(eventName, properties = {}) {
-            // Add source to distinguish between Next.js and static HTML
-            properties.source = 'static_html';
-            
             if (typeof gtag !== 'undefined') {
                 gtag('event', eventName, properties);
             }
-            
-            // Also track in console for debugging
             console.log('Event tracked:', eventName, properties);
         }
-        
+
         // Track CTA clicks
         document.addEventListener('click', function(e) {
             if (e.target.classList.contains('cta-button')) {
                 trackEvent('cta_click', {
-                    button_text: e.target.textContent,
+                    button_text: e.target.textContent.trim(),
                     page_location: window.location.href
                 });
             }
         });
-        
-        // Performance monitoring
-        window.addEventListener('load', function() {
-            if ('performance' in window) {
-                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-                trackEvent('page_load_time', {
-                    load_time: loadTime,
-                    page: window.location.pathname
-                });
+
+        // Smooth scrolling for anchor links
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A' && e.target.getAttribute('href').startsWith('#')) {
+                e.preventDefault();
+                const targetId = e.target.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
             }
         });
-        
+
+        // Initialize when DOM is loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializePage);
+        } else {
+            initializePage();
+        }
+
         // Service Worker Registration for PWA
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
@@ -511,8 +740,7 @@
         gtag('config', 'GA_TRACKING_ID', {
             page_title: 'Yesp Tech - Web Development Company Erode',
             page_location: 'https://yesptech.in',
-            send_page_view: true,
-            custom_map: {'dimension1': 'source'}
+            send_page_view: true
         });
     </script>
     
