@@ -1,33 +1,18 @@
-# Robots.txt for YESP Tech - Web Development Company Erode
-# https://yesptech.in
+# Robots.txt for Yesp Tech - Web Development Company Erode
+# https://yesptech.in/robots.txt
 
 User-agent: *
 Allow: /
-
-# Disallow admin and private areas
 Disallow: /admin/
 Disallow: /private/
-Disallow: /api/
-Disallow: /studio/
 Disallow: /_next/
-Disallow: /404
-Disallow: /500
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /studio/
+Disallow: /temp/
+Disallow: /cache/
 
-# Allow important pages
-Allow: /
-Allow: /about
-Allow: /services
-Allow: /products
-Allow: /blog
-Allow: /contact
-
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
-
-# Sitemap location
-Sitemap: https://yesptech.in/sitemap.xml
-
-# Specific rules for major search engines
+# Allow specific bots
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 1
@@ -50,7 +35,7 @@ Crawl-delay: 2
 
 User-agent: YandexBot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 2
 
 User-agent: facebookexternalhit
 Allow: /
@@ -62,6 +47,9 @@ User-agent: LinkedInBot
 Allow: /
 
 User-agent: WhatsApp
+Allow: /
+
+User-agent: Applebot
 Allow: /
 
 # Block bad bots
@@ -79,3 +67,12 @@ Disallow: /
 
 User-agent: MajesticSEO
 Disallow: /
+
+# Sitemaps
+Sitemap: https://yesptech.in/sitemap.xml
+Sitemap: https://yesptech.in/sitemap-main.xml
+Sitemap: https://yesptech.in/sitemap-blog.xml
+Sitemap: https://yesptech.in/sitemap-images.xml
+
+# Host
+Host: https://yesptech.in

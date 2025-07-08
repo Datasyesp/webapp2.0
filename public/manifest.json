@@ -1,27 +1,87 @@
 {
   "name": "YESP Tech - Web Development Company Erode",
-  "short_name": "YESP Tech",
-  "description": "Leading web development and eCommerce company in Erode, Tamil Nadu",
+  "short_name": "Yesp Tech",
+  "description": "Leading web development and eCommerce company in Erode, Tamil Nadu. Professional web solutions, mobile apps, and digital marketing services.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#2563eb",
   "orientation": "portrait-primary",
-  "categories": ["business", "productivity", "technology"],
+  "scope": "/",
   "lang": "en-US",
   "dir": "ltr",
+  "categories": ["business", "productivity", "technology"],
   "icons": [
     {
       "src": "/yesp-logo.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any maskable"
     },
     {
       "src": "/yesp-logo.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/yesp-logo.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Services",
+      "short_name": "Services",
+      "description": "View our web development services",
+      "url": "/services",
+      "icons": [
+        {
+          "src": "/yesp-logo.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Get in touch with us",
+      "url": "/contact",
+      "icons": [
+        {
+          "src": "/yesp-logo.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Blog",
+      "short_name": "Blog",
+      "description": "Read our latest articles",
+      "url": "/blog",
+      "icons": [
+        {
+          "src": "/yesp-logo.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "About",
+      "short_name": "About",
+      "description": "Learn more about Yesp Tech",
+      "url": "/about",
+      "icons": [
+        {
+          "src": "/yesp-logo.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
     }
   ],
   "screenshots": [
@@ -29,34 +89,20 @@
       "src": "/yesp-logo.png",
       "sizes": "1280x720",
       "type": "image/png",
-      "platform": "wide",
-      "label": "YESP Tech Homepage"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Contact Us",
-      "short_name": "Contact",
-      "description": "Get in touch with YESP Tech",
-      "url": "/contact",
-      "icons": [
-        {
-          "src": "/yesp-logo.png",
-          "sizes": "96x96"
-        }
-      ]
+      "form_factor": "wide",
+      "label": "Yesp Tech Homepage"
     },
     {
-      "name": "Our Services",
-      "short_name": "Services",
-      "description": "Explore our web development services",
-      "url": "/services",
-      "icons": [
-        {
-          "src": "/yesp-logo.png",
-          "sizes": "96x96"
-        }
-      ]
+      "src": "/yesp-logo.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Yesp Tech Mobile View"
     }
-  ]
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
 }

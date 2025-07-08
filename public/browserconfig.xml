@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+  <msapplication>
+    <tile>
+      <square70x70logo src="/yesp-logo.png"/>
+      <square150x150logo src="/yesp-logo.png"/>
+      <wide310x150logo src="/yesp-logo.png"/>
+      <square310x310logo src="/yesp-logo.png"/>
+      <TileColor>#2563eb</TileColor>
+    </tile>
+    <badge>
+      <polling-uri src="https://yesptech.in/api/badge"/>
+      <frequency>30</frequency>
+    </badge>
+    <notification>
+      <polling-uri src="https://yesptech.in/api/notifications"/>
+      <frequency>60</frequency>
+      <cycle>1</cycle>
+    </notification>
+  </msapplication>
+</browserconfig>

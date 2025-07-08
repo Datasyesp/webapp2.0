@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://yesptech.in/</loc>
+    <image:image>
+      <image:loc>https://yesptech.in/yesp-logo.png</image:loc>
+      <image:title>Yesp Tech - Web Development Company Logo</image:title>
+      <image:caption>Leading web development and eCommerce company in Erode, Tamil Nadu</image:caption>
+      <image:geo_location>Erode, Tamil Nadu, India</image:geo_location>
+      <image:license>https://yesptech.in/license</image:license>
+    </image:image>
+    <image:image>
+      <image:loc>https://yesptech.in/ecom-studio-logo.png</image:loc>
+      <image:title>Ecom Studio Logo</image:title>
+      <image:caption>Ecommerce development solutions by Yesp Tech</image:caption>
+      <image:geo_location>Erode, Tamil Nadu, India</image:geo_location>
+      <image:license>https://yesptech.in/license</image:license>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://yesptech.in/services</loc>
+    <image:image>
+      <image:loc>https://yesptech.in/yesp-logo.png</image:loc>
+      <image:title>Web Development Services</image:title>
+      <image:caption>Professional web development services in Erode</image:caption>
+      <image:geo_location>Erode, Tamil Nadu, India</image:geo_location>
+      <image:license>https://yesptech.in/license</image:license>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://yesptech.in/about</loc>
+    <image:image>
+      <image:loc>https://yesptech.in/yesp-logo.png</image:loc>
+      <image:title>About Yesp Tech</image:title>
+      <image:caption>About Yesp Tech - Web development company in Erode</image:caption>
+      <image:geo_location>Erode, Tamil Nadu, India</image:geo_location>
+      <image:license>https://yesptech.in/license</image:license>
+    </image:image>
+  </url>
+</urlset>
